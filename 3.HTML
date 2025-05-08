@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Reproductor de Video</title>
+</head>
+<body>
+
+  <h2>Reproductor de Video en Secuencia</h2>
+
+  <video id="videoPlayer" width="640" height="360" controls autoplay>
+    <source src="video1.mp4" type="video/mp4">
+    Tu navegador no soporta la etiqueta de video.
+  </video>
+
+  <script>
+    // Lista de reproducción (puedes agregar más videos aquí)
+    const playlist = [
+      "video1.mp4",
+      "video2.mp4",
+      "video3.mp4",
+      "video4.mp4",
+      "video5.mp4",
+      "video6.mp4",
+      "video7.mp4",
+      "video8.mp4",
+      "video9.mp4",
+    ];
+
+    let currentVideo = 0;
+    const videoPlayer = document.getElementById("videoPlayer");
+
+    // Evento que se ejecuta cuando termina un video
+    videoPlayer.addEventListener("ended", function () {
+      currentVideo++;
+      if (currentVideo < playlist.length) {
+        videoPlayer.src = playlist[currentVideo];
+        videoPlayer.play();
+      } else {
+        console.log("Fin de la lista de reproducción.");
+      }
+    });
+  </script>
+
+</body>
+</html>
